@@ -31,17 +31,11 @@ int main(int argc, char *argv[]) {
         scanf("%lld%lld%lld", &n, &m, &k);
 
         answer = abs(n-m);
-        while(k) {
-            k--;
-            if(n < m) {
-                n++;
-            }
-            else if(n > m) {
-                m++;
-            }
-            answer = MIN(answer, abs(n-m));
-        }
 
+        if( abs(n-m) <= k ) {
+            k = abs(n-m);
+        }
+        answer = MIN(answer, abs(n-m) - k);
         printf("%lld\n", answer);
     }
     return 0;
